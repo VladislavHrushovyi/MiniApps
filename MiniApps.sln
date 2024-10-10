@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniApps", "MiniApps\MiniApps.csproj", "{767CDA61-F231-4400-A0BD-837CC7F87F02}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LamdaPractice", "LamdaPractice\LamdaPractice.csproj", "{767CDA61-F231-4400-A0BD-837CC7F87F02}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
