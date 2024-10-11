@@ -1,19 +1,17 @@
 ﻿
-using System.Runtime.InteropServices;using System.Text.Json.Serialization.Metadata;
+using LamdaPractice;
+using LamdaPractice.Models;
 
-var plus = (int a, int b) => a + b;
-
-static int Wrap(Func<int, int, int> func)
+var humans = Enumerable.Range(1, 100).Select(x => new Human()
 {
-    Console.WriteLine("Start wrap");
-    var fetchedData = Task.Run<Tuple<int, int>>( async () =>
-        {
-            await Task.Delay(1000);
-            return new Tuple<int, int>(2,2);
-        }).GetAwaiter().GetResult();
-    var result = func.Invoke(fetchedData.Item1, fetchedData.Item2);
+    Name = "Name" + x,
+    Surname = "Surname" + x,
+    Age = x + 1,
+});
 
-    return result;
+var result = humans.WhereClone(x => x.Age < 10).Select(x => $"{x.Name} {x.Surname} {x.Age}");
+
+foreach (var human in result)
+{
+    Console.WriteLine(human);
 }
-
-Console.WriteLine(Wrap(plus));
