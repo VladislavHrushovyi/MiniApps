@@ -15,3 +15,15 @@ foreach (var human in result)
 {
     Console.WriteLine(human);
 }
+
+var firstResult = humans.MyFirst();
+Console.WriteLine($"\n{firstResult}");
+
+var lastResult = humans.MyLast();
+Console.WriteLine($"\n{lastResult}");
+
+var firstCond = humans.MyFirst(x => x.Age == 50);
+Console.WriteLine($"\n{firstCond}");
+
+var lastCond = humans.MyLast(x => x.Age > 50);
+Console.WriteLine($"\n{lastCond}");
