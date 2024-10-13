@@ -27,3 +27,6 @@ Console.WriteLine($"\n{firstCond}");
 
 var lastCond = humans.MyLast(x => x.Age > 50);
 Console.WriteLine($"\n{lastCond}");
+
+Console.WriteLine($"All humans has age more than 0: {humans.MyAll(x => x.Age >= 30)}");
+Console.WriteLine($"One human has age more than 45: {humans.MyAny(x => x.Age > 102)}");

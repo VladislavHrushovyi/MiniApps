@@ -69,4 +69,30 @@ public static class LinqClone
 
         return result;
     }
+
+    public static bool MyAll<T>(this IEnumerable<T> source, Func<T, bool> predicate)
+    {
+        foreach (var item in source)
+        {
+            if (!predicate(item))
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    public static bool MyAny<T>(this IEnumerable<T> source, Func<T, bool> predicate)
+    {
+        foreach (var item in source)    
+        {
+            if (predicate(item))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
