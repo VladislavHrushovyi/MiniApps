@@ -30,3 +30,5 @@ Console.WriteLine($"\n{lastCond}");
 
 Console.WriteLine($"All humans has age more than 0: {humans.MyAll(x => x.Age >= 30)}");
 Console.WriteLine($"One human has age more than 45: {humans.MyAny(x => x.Age > 102)}");
+
+Console.WriteLine($"\nSum of each human's age: {humans.MySum(x => x.Age)}");
