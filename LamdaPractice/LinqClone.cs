@@ -111,4 +111,20 @@ public static class LinqClone
 
         return result;
     }
+
+    public static double MyAverage<T>(this IEnumerable<T> source, Func<T, double> selector) => MyAverage<T, double> (source, selector);
+
+    private static TResult MyAverage<T, TResult>(IEnumerable<T> source, Func<T, TResult> selector)
+    where TResult : struct, INumber<TResult>
+    {
+        TResult result = TResult.Zero;
+        TResult count = TResult.Zero;
+        foreach (var item in source)
+        {
+            result += selector(item);
+            count++;
+        }
+
+        return result / count;
+    }
 }
