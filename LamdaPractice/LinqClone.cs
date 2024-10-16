@@ -6,7 +6,7 @@ namespace LamdaPractice;
 
 public static class LinqClone
 {
-    public static IEnumerable<T> WhereClone<T>(this IEnumerable<T> source, Func<T, bool> predicate)
+    public static IEnumerable<T> MyWhere<T>(this IEnumerable<T> source, Func<T, bool> predicate)
     {
         foreach (var item in source)
         {
@@ -17,7 +17,7 @@ public static class LinqClone
         }
     }
 
-    public static IEnumerable<T> SelectClone<T>(this IEnumerable<T> source, Func<T, T> selector)
+    public static IEnumerable<TResult> MySelect<T, TResult>(this IEnumerable<T> source, Func<T, TResult> selector)
     {
         foreach (var item in source)
         {
@@ -126,5 +126,18 @@ public static class LinqClone
         }
 
         return result / count;
+    }
+
+    public static IEnumerable<T> MyDistinct<T>(this IEnumerable<T> source)
+    {
+        var set = new HashSet<T>();
+
+        foreach (var item in source)
+        {
+            if (set.Add(item))
+            {
+                yield return item;
+            }
+        }
     }
 }

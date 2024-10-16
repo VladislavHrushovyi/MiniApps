@@ -7,9 +7,14 @@ var humans = Enumerable.Range(1, 100).Select(x => new Human()
     Name = "Name" + x,
     Surname = "Surname" + x,
     Age = x + 1,
-});
+}).Concat(Enumerable.Range(1,100).Select(x => new Human()
+{
+    Name = "Name" + x,
+    Surname = "Surname" + x,
+    Age = x + 1,
+}));
 
-var result = humans.WhereClone(x => x.Age < 10).Select(x => $"{x.Name} {x.Surname} {x.Age}");
+var result = humans.MyWhere(x => x.Age < 10).Select(x => $"{x.Name} {x.Surname} {x.Age}");
 
 foreach (var human in result)
 {
@@ -34,3 +39,5 @@ Console.WriteLine($"One human has age more than 45: {humans.MyAny(x => x.Age > 1
 Console.WriteLine($"\nSum of each human's age: {humans.MySum(x => x.Age)}");
 
 Console.WriteLine($"\nAverage human's age: {humans.MyAverage(x => x.Age)}");
+
+Console.WriteLine($"\nAmount of distinct humans: {humans.MySelect(x => x.Age).MyDistinct().Count()} -- Total humans: {humans.Count()}");
