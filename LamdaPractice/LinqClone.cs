@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Numerics;
-using LamdaPractice.Models;
+using LambdaPractice.Models;
 
-namespace LamdaPractice;
+namespace LambdaPractice;
 
 public static class LinqClone
 {
@@ -139,5 +139,32 @@ public static class LinqClone
                 yield return item;
             }
         }
+    }
+    
+    public static bool MyContains<T>(this IEnumerable<T> source, T value) => MyContains(source, value, null);
+    public static bool MyContains<T>(this IEnumerable<T> source, T value, IEqualityComparer<T>? comparer)
+    {
+        if (comparer is null)
+        {
+            foreach (var item in source)
+            {
+                if (EqualityComparer<T>.Default.Equals(value, item))
+                {
+                    return true;
+                }
+            }
+        }
+        else
+        {
+            foreach (var item in source)
+            {
+                if (comparer.Equals(item, value))
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
     }
 }

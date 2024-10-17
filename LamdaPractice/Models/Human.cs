@@ -1,4 +1,4 @@
-﻿namespace LamdaPractice.Models;
+﻿namespace LambdaPractice.Models;
 
 public class Human
 {

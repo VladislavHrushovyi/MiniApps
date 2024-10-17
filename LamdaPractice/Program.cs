@@ -1,6 +1,6 @@
 ﻿
-using LamdaPractice;
-using LamdaPractice.Models;
+using LambdaPractice;
+using LambdaPractice.Models;
 
 var humans = Enumerable.Range(1, 100).Select(x => new Human()
 {
@@ -41,3 +41,4 @@ Console.WriteLine($"\nSum of each human's age: {humans.MySum(x => x.Age)}");
 Console.WriteLine($"\nAverage human's age: {humans.MyAverage(x => x.Age)}");
 
 Console.WriteLine($"\nAmount of distinct humans: {humans.MySelect(x => x.Age).MyDistinct().Count()} -- Total humans: {humans.Count()}");
+Console.WriteLine($"\nContains a human {humans.MySelect(x => x.Age).MyContains(humans.MyFirst(x => x.Age < 30).Age)}");
