@@ -199,6 +199,22 @@ public static class LinqClone
             }
         }
     }
-    
-    
+
+    public static IEnumerable<T> MyTake<T>(this IEnumerable<T> source, int count)
+    {
+        var counter = 0;
+
+        foreach (var item in source)
+        {
+            if (count > counter)
+            {
+                counter++;
+                yield return item;
+            }
+            else
+            {
+                break;
+            }
+        }
+    }
 }

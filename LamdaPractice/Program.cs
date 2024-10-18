@@ -46,3 +46,5 @@ Console.WriteLine($"\nContains a human {humans.MySelect(x => x.Age).MyContains(h
 Console.WriteLine($"\nCount of humans {humans.MyCount()}");
 
 Console.WriteLine($"Skip 20 items {humans.MySkip(20).MyCount()}");
+
+Console.WriteLine($"Take 20 humans {humans.MyTake(20).MyCount()}");
