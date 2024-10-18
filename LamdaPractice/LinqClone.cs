@@ -184,4 +184,21 @@ public static class LinqClone
 
         return counter;
     }
+
+    public static IEnumerable<T> MySkip<T>(this IEnumerable<T> source, int count)
+    {
+        int skipCounter = 0;
+        foreach (var item in source)
+        {
+            if (count > skipCounter)
+            {
+                skipCounter++;
+            }else
+            {
+                yield return item;
+            }
+        }
+    }
+    
+    
 }

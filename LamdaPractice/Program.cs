@@ -43,4 +43,6 @@ Console.WriteLine($"\nAverage human's age: {humans.MyAverage(x => x.Age)}");
 Console.WriteLine($"\nAmount of distinct humans: {humans.MySelect(x => x.Age).MyDistinct().Count()} -- Total humans: {humans.Count()}");
 Console.WriteLine($"\nContains a human {humans.MySelect(x => x.Age).MyContains(humans.MyFirst(x => x.Age < 30).Age)}");
 
-Console.WriteLine($"Count of humans {humans.MyCount()}");
+Console.WriteLine($"\nCount of humans {humans.MyCount()}");
+
+Console.WriteLine($"Skip 20 items {humans.MySkip(20).MyCount()}");
