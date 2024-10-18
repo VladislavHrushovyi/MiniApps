@@ -167,4 +167,21 @@ public static class LinqClone
 
         return false;
     }
+
+    public static int MyCount<T>(this IEnumerable<T> source)
+    {
+        var counter = 0;
+        using var enumerator = source.GetEnumerator();
+
+        if (enumerator.MoveNext())
+        {
+            counter++;
+            while (enumerator.MoveNext())
+            {
+                counter++;
+            }
+        }
+
+        return counter;
+    }
 }
