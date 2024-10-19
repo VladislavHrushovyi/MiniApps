@@ -217,4 +217,29 @@ public static class LinqClone
             }
         }
     }
+
+    public static IEnumerable<IEnumerable<T>> MyChunk<T>(this IEnumerable<T> source, int chunkSize)
+    {
+        var chunk = new T[chunkSize];
+        int chunkPos = 0;
+
+        foreach (var item in source)
+        {
+            if (chunkPos == chunkSize - 1)
+            {
+                chunkPos = 0;
+                yield return chunk;
+            }
+            else
+            {
+                chunk[chunkPos++] = item;
+            }
+        }
+
+        if (chunkPos < chunkSize - 1 && chunkPos != 0)
+        {
+            Array.Resize(ref chunk, chunkPos);
+            yield return chunk;
+        }
+    }
 }

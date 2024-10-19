@@ -47,4 +47,5 @@ Console.WriteLine($"\nCount of humans {humans.MyCount()}");
 
 Console.WriteLine($"Skip 20 items {humans.MySkip(20).MyCount()}");
 
-Console.WriteLine($"Take 20 humans {humans.MyTake(20).MyCount()}");
+Console.WriteLine($"\nTake 20 humans {humans.MyTake(20).MyCount()}");
+Console.WriteLine($"\n Amount chunks by 19 item {humans.MyChunk(11).MyCount()}");
