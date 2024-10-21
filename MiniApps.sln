@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LamdaPractice", "LamdaPractice\LamdaPractice.csproj", "{767CDA61-F231-4400-A0BD-837CC7F87F02}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MiniShop", "MiniShop", "{4387D828-E06F-4405-B2A3-B780D9A105A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniShop.WebApi", "MiniShop.WebApi\MiniShop.WebApi.csproj", "{D8BA5054-F6A6-499F-A123-8166F0636B08}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,12 @@ Global
 		{767CDA61-F231-4400-A0BD-837CC7F87F02}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{767CDA61-F231-4400-A0BD-837CC7F87F02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{767CDA61-F231-4400-A0BD-837CC7F87F02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8BA5054-F6A6-499F-A123-8166F0636B08}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8BA5054-F6A6-499F-A123-8166F0636B08}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8BA5054-F6A6-499F-A123-8166F0636B08}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8BA5054-F6A6-499F-A123-8166F0636B08}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D8BA5054-F6A6-499F-A123-8166F0636B08} = {4387D828-E06F-4405-B2A3-B780D9A105A8}
 	EndGlobalSection
 EndGlobal
