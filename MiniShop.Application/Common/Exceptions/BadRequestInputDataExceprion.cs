@@ -8,4 +8,9 @@ public class BadRequestInputDataException : Exception
     {
         ErrorMessage = message;
     }
+
+    public BadRequestInputDataException(string[] errors) : base(string.Join("\n", errors))
+    {
+        
+    }
 }
