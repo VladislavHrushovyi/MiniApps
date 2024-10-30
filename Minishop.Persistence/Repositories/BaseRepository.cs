@@ -7,33 +7,33 @@ namespace Minishop.Persistence.Repositories;
 
 public abstract class BaseRepository<TEntity>(PostgreSqlContext context) : IBaseRepository<TEntity> where TEntity : BaseModel
 {
-    public Task<IEnumerable<TEntity>> GetAll()
+    public async Task<IEnumerable<TEntity>> GetAll()
     {
-        throw new NotImplementedException();
+        return await Task.Run(() => context.Set<TEntity>().ToList());
     }
 
-    public Task<TEntity> GetByGuid(Guid guid)
+    public async Task<TEntity?> GetByGuid(Guid guid)
     {
-        throw new NotImplementedException();
+        return await Task.Run(() => context.Set<TEntity>().FirstOrDefault(x => x.Id == guid));
     }
 
-    public Task<TEntity> Add(TEntity entity)
+    public async Task<TEntity> Add(TEntity entity)
     {
-        throw new NotImplementedException();
+        return (await context.Set<TEntity>().AddAsync(entity)).Entity;
     }
 
-    public Task<TEntity> Update(TEntity entity)
+    public async Task<TEntity> Update(TEntity entity)
     {
-        throw new NotImplementedException();
+        return await Task.Run(() => context.Set<TEntity>().Update(entity).Entity);
     }
 
     public Task<TEntity> Remove(TEntity entity)
     {
-        throw new NotImplementedException();
+        return Task.Run(() => context.Set<TEntity>().Remove(entity).Entity);
     }
 
-    public Task<TEntity> FindByProps(Expression<Func<TEntity, bool>> predicate)
+    public Task<TEntity?> FindByProps(Expression<Func<TEntity, bool>> predicate)
     {
-        throw new NotImplementedException();
+        return Task.Run(() => context.Set<TEntity>().FirstOrDefault(predicate));
     }
 }
